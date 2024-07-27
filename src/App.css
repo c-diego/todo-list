@@ -1,0 +1,243 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 700px;
+  flex-direction: row;
+  padding: 1.5rem 1rem;
+  margin-bottom: 3.5rem;
+  border-bottom: 0.2px solid rgba(220, 220, 230, 0.6);
+}
+
+.titleContainer > span {
+  font-size: 24px;
+  border: 1px solid rgba(220, 220, 230, 0.6);
+  border-radius: 4px;
+  background-color: rgba(220, 220, 230, 0.6);
+  padding: 0.4rem;
+}
+
+.title {
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title > span {
+  font-size: 12px;
+  margin-bottom: 5px;
+  color: rgb(148, 148, 148);
+}
+
+.main {
+  min-width: 700px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+  border-radius: 4px;
+}
+
+.inputWrapper {
+  padding: 2rem;
+}
+
+.inputWrapper label input {
+  width: 100%;
+  padding: 0.5rem 0;
+  border: none;
+  border-bottom: 2px solid rgba(200, 200, 210, 1);
+  font-size: 1.1rem;
+}
+
+.inputWrapper label input:focus-visible {
+  outline: unset;
+}
+
+.inputWrapper label {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+}
+
+.inputWrapper label > span {
+  width: 100%;
+  padding: 10px 0;
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: 0.4s, font-weight 0s;
+  transition-timing-function: ease;
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  opacity: 0.3;
+}
+
+.inputWrapper label input:focus + span,
+.inputWrapper label input:not(:placeholder-shown) + span {
+  opacity: 1;
+  transform: scale(1) translateY(-100%);
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0;
+  width: 100%;
+}
+
+.task {
+  display: flex;
+  border-top: 0.5px solid rgba(220, 220, 230, 0.6);
+  align-items: center;
+}
+
+.taskContent {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: 0.2s;
+  transition-timing-function: ease;
+  font-weight: 500;
+}
+
+.taskContent {
+  max-width: 700px;
+  overflow: hidden;
+}
+
+.taskContent:hover {
+  background-color: rgba(230, 230, 255, 0.3);
+}
+
+.taskContent:hover > button {
+  display: block;
+}
+
+.taskContent input {
+  opacity: 0;
+  cursor: pointer;
+  display: none;
+}
+
+.checkmark {
+  flex: 0 0 auto;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid rgba(220, 220, 230, 0.6);
+  border-radius: 4px;
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.taskContent input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+.checkmark:after {
+  content: "";
+  display: none;
+}
+
+.taskContent input:checked ~ .checkmark:after {
+  display: inline-block;
+}
+
+.taskContent .checkmark:after {
+  width: 3px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.task[data-completed="true"] {
+  color: rgba(200, 200, 210, 1);
+}
+
+button {
+  width: 25px;
+  height: 25px;
+  margin-left: auto;
+  align-items: center;
+  border-radius: 50%;
+  background-color: rgba(230, 230, 255, 0.9);
+  outline: unset;
+  border: 1px solid rgba(220, 220, 230, 0.6);
+  display: none;
+}
+
+.footer {
+  font-size: 1.1rem;
+  border-top: 0.5px solid rgba(220, 220, 230, 0.6);
+}
+
+.statistics {
+  padding: 1rem;
+}
+
+.statistics .checkmark {
+  background-color: #2196f3;
+}
+
+.checkmark span {
+  display: inline-block;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.author {
+  justify-self: end;
+  padding: 1rem 0;
+}
+
+.author span {
+  line-height: 1.5;
+  text-align: center;
+  font-weight: 500;
+  display: inline-block;
+  animation: heartbeat 1s infinite;
+
+}
+
+
+@keyframes heartbeat {
+  0%,to {
+      transform: translateY(0)
+  }
+
+  50% {
+      transform: translateY(-2px)
+  }
+}
+
+
+@media only screen and (max-width: 700px) {
+  .titleContainer, .title, .main, .taskContent {
+    max-width: unset;
+    min-width: unset;
+  }
+
+  .main {
+    margin: 1rem;
+  }
+}
