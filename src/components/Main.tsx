@@ -91,7 +91,9 @@ export default function Main() {
                 />
                 <span className="checkmark"></span>
                 {task.description}
-                <button onClick={() => handleDeleteTask(index)}>X</button>
+                <button onClick={() => handleDeleteTask(index)} type="button">
+                  X
+                </button>
               </label>
             </div>
           );
