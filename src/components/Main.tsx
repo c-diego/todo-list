@@ -66,6 +66,7 @@ export default function Main() {
       <div className="inputWrapper">
         <label>
           <input
+            enterKeyHint="enter"
             type="text"
             name="description"
             value={taskDescription}
