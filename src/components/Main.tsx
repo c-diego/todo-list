@@ -35,11 +35,12 @@ export default function Main() {
 
   const handleSend = (event: KeyboardEvent) => {
     if (
-      (event.code != "Enter" && event.code != "NumpadEnter") ||
+      (event.key != "Enter" && event.key != "NumpadEnter") ||
       taskDescription.trim() == ""
     ) {
       return;
     }
+
     setTasks((tasks) => [
       ...tasks,
       { description: taskDescription, completed: false },
@@ -61,6 +62,7 @@ export default function Main() {
     tasksCopy.splice(index, 1);
     setTasks(tasksCopy);
   };
+
   return (
     <div className="main">
       <div className="inputWrapper">
